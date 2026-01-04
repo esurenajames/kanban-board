@@ -33,7 +33,7 @@ export default function LoginPage() {
                     </div>
 
                     {/* Top Right Widget - Static Abstract Kanban */}
-                    <div className="self-end mt-12 w-auto bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-xl border border-white/20">
+                    <div className="self-end mt-12 w-auto bg-white/10 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-white/20">
                         <div className="flex gap-4">
                             {/* Column 1 - Pink */}
                             <div className="flex flex-col gap-2">
@@ -41,21 +41,21 @@ export default function LoginPage() {
                                 <div className="flex gap-2">
                                     <div className="w-1 bg-pink-500 rounded-full h-full opacity-30"></div>
                                     <div className="flex flex-col gap-2">
-                                        <div className="h-8 w-20 bg-white border border-gray-100 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
-                                            <div className="h-1 w-12 bg-gray-200 rounded-full"></div>
+                                        <div className="h-8 w-20 bg-white/80 border border-white/40 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
+                                            <div className="h-1 w-12 bg-gray-300 rounded-full"></div>
                                         </div>
-                                        <div className="h-8 w-20 bg-white border border-gray-100 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
+                                        <div className="h-8 w-20 bg-white/80 border border-white/40 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
                                             <div className="flex gap-1 mb-0.5">
-                                                <div className="h-1 w-3 bg-gray-200 rounded-full"></div>
-                                                <div className="h-1 w-2 bg-gray-200 rounded-full"></div>
+                                                <div className="h-1 w-3 bg-gray-300 rounded-full"></div>
+                                                <div className="h-1 w-2 bg-gray-300 rounded-full"></div>
                                             </div>
-                                            <div className="h-1 w-14 bg-gray-200 rounded-full"></div>
+                                            <div className="h-1 w-14 bg-gray-300 rounded-full"></div>
                                         </div>
-                                        <div className="h-8 w-20 bg-white border border-gray-100 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
-                                            <div className="h-1 w-10 bg-gray-200 rounded-full"></div>
+                                        <div className="h-8 w-20 bg-white/80 border border-white/40 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
+                                            <div className="h-1 w-10 bg-gray-300 rounded-full"></div>
                                         </div>
-                                        <div className="h-8 w-20 bg-white border border-gray-100 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
-                                            <div className="h-1 w-8 bg-gray-200 rounded-full"></div>
+                                        <div className="h-8 w-20 bg-white/80 border border-white/40 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
+                                            <div className="h-1 w-8 bg-gray-300 rounded-full"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -67,14 +67,14 @@ export default function LoginPage() {
                                 <div className="flex gap-2">
                                     <div className="w-1 bg-indigo-500 rounded-full h-full opacity-30"></div>
                                     <div className="flex flex-col gap-2">
-                                        <div className="h-8 w-20 bg-white border border-gray-100 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
-                                            <div className="h-1 w-16 bg-gray-200 rounded-full"></div>
+                                        <div className="h-8 w-20 bg-white/80 border border-white/40 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
+                                            <div className="h-1 w-16 bg-gray-300 rounded-full"></div>
                                         </div>
-                                        <div className="h-8 w-20 bg-white border border-gray-100 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
-                                            <div className="h-1 w-12 bg-gray-200 rounded-full"></div>
+                                        <div className="h-8 w-20 bg-white/80 border border-white/40 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
+                                            <div className="h-1 w-12 bg-gray-300 rounded-full"></div>
                                         </div>
-                                        <div className="h-8 w-20 bg-white border border-gray-100 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
-                                            <div className="h-1 w-14 bg-gray-200 rounded-full"></div>
+                                        <div className="h-8 w-20 bg-white/80 border border-white/40 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
+                                            <div className="h-1 w-14 bg-gray-300 rounded-full"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -86,17 +86,17 @@ export default function LoginPage() {
                                 <div className="flex gap-2">
                                     <div className="w-1 bg-blue-500 rounded-full h-full opacity-30"></div>
                                     <div className="flex flex-col gap-2">
-                                        <div className="h-8 w-20 bg-white border border-gray-100 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
-                                            <div className="h-1 w-14 bg-gray-200 rounded-full"></div>
+                                        <div className="h-8 w-20 bg-white/80 border border-white/40 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
+                                            <div className="h-1 w-14 bg-gray-300 rounded-full"></div>
                                         </div>
-                                        <div className="h-8 w-20 bg-white border border-gray-100 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
+                                        <div className="h-8 w-20 bg-white/80 border border-white/40 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
                                             <div className="flex gap-1">
-                                                <div className="h-1 w-8 bg-gray-200 rounded-full"></div>
-                                                <div className="h-1 w-4 bg-gray-200 rounded-full"></div>
+                                                <div className="h-1 w-8 bg-gray-300 rounded-full"></div>
+                                                <div className="h-1 w-4 bg-gray-300 rounded-full"></div>
                                             </div>
                                         </div>
-                                        <div className="h-8 w-20 bg-white border border-gray-100 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
-                                            <div className="h-1 w-12 bg-gray-200 rounded-full"></div>
+                                        <div className="h-8 w-20 bg-white/80 border border-white/40 rounded shadow-sm flex flex-col justify-center px-1.5 gap-1">
+                                            <div className="h-1 w-12 bg-gray-300 rounded-full"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -105,14 +105,14 @@ export default function LoginPage() {
                     </div>
 
                     <div className="flex flex-col gap-32">
-                        <div className="self-start bg-white/95 backdrop-blur-sm rounded-full py-3 px-5 shadow-lg flex items-center gap-3 animate-in slide-in-from-left-4 duration-700 delay-150">
+                        <div className="self-start bg-white/10 backdrop-blur-md border border-white/20 rounded-full py-3 px-5 shadow-lg flex items-center gap-3 animate-in slide-in-from-left-4 duration-700 delay-150">
                             <div className="bg-blue-500 rounded-full p-1.5 text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
                                     <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
                                 </svg>
                             </div>
                             <div className="max-w-[120px]">
-                                <p className="text-sm font-medium text-gray-900">Kanban Board with AI Integration</p>
+                                <p className="text-sm font-medium text-white/90">Kanban Board with AI Integration</p>
                             </div>
                         </div>
 
