@@ -1,16 +1,20 @@
 import Layout from '@/app/layouts/layout'
 import { Hero } from './_components/hero'
-import { Features } from './_components/features'
-import { Footer } from './_components/footer'
+import { InnovationSection } from './_components/innovation-section'
+
+
+import { SidekicksSection } from './_components/sidekicks-section'
+import { PricingSection } from './_components/pricing-section'
+import { TeamsSection } from './_components/teams-section'
 
 export default function LandingPage() {
     return (
         <Layout>
-            <div className="overflow-hidden">
-                <Hero />
-                <Features />
-                <Footer />
-            </div>
+            <Hero />
+            <InnovationSection />
+            <SidekicksSection />
+            <PricingSection />
+            <TeamsSection />
         </Layout>
     )
 }

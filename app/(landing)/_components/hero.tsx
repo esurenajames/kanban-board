@@ -141,12 +141,13 @@ export function Hero() {
     }
 
     return (
-        <div
+        <section
             ref={containerRef}
             onMouseMove={handleMouseMove}
             onMouseEnter={() => gsap.to(cursorRef.current, { opacity: 1, scale: 1, duration: 0.2 })}
             onMouseLeave={() => gsap.to(cursorRef.current, { opacity: 0, scale: 0, duration: 0.2 })}
             className="relative pt-32 pb-20 sm:pt-48 sm:pb-32 overflow-hidden bg-white cursor-none"
+            aria-label="Hero Section"
             style={{
                 backgroundImage: 'radial-gradient(#e5e7eb 1px, transparent 1px)',
                 backgroundSize: '24px 24px'
@@ -166,12 +167,12 @@ export function Hero() {
             </div>
 
             <div className="container mx-auto px-6 relative z-10 text-center">
-                <div className="relative inline-block mb-6">
+                <header className="relative inline-block mb-6">
                     <h1 className="text-6xl md:text-8xl font-serif font-medium tracking-tight text-zinc-900 leading-[0.9]">
                         A <span className="bg-purple-200 px-2 -mx-2 rounded-lg text-zinc-900">board</span> built for <br />
                         <span className="italic">better <span className="font-bold">flow</span></span>
                     </h1>
-                </div>
+                </header>
 
                 <p className="mt-8 text-lg md:text-xl text-zinc-500 max-w-3xl mx-auto leading-relaxed">
                     Integrate AI into your workflow to help your team build the right thing faster. <br /> Made by People, for People.
@@ -196,7 +197,7 @@ export function Hero() {
                         <DashboardPreview />
 
                         {/* Success Widget - Left */}
-                        <div className="success-widget absolute -left-4 md:-left-12 top-1/3 bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-4 flex items-center gap-3 border border-zinc-100 z-20 max-w-[200px] md:max-w-none">
+                        <div className="success-widget absolute -left-4 md:-left-12 top-1/3 bg-white rounded-[var(--radius)] shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-4 flex items-center gap-3 border border-zinc-100 z-20 max-w-[200px] md:max-w-none">
                             <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-600"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
                             </div>
@@ -207,7 +208,7 @@ export function Hero() {
                         </div>
 
                         {/* Dialog Widget - Right */}
-                        <div className="dialog-widget absolute -right-4 md:-right-12 top-10 bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-5 border border-zinc-100 z-20 w-64 text-left">
+                        <div className="dialog-widget absolute -right-4 md:-right-12 top-10 bg-white rounded-[var(--radius)] shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-5 border border-zinc-100 z-20 w-64 text-left">
                             <div className="flex items-center justify-between mb-3">
                                 <span className="text-sm font-semibold text-zinc-900">Edit Task</span>
                                 <div className="w-6 h-6 rounded-md hover:bg-zinc-100 flex items-center justify-center cursor-pointer text-zinc-400">
@@ -230,7 +231,7 @@ export function Hero() {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

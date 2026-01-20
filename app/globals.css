@@ -66,6 +66,7 @@
   --foreground: #171717;
   --primary: #8751e6;
   --primary-foreground: #ffffff;
+
 }
 
 .dark {
@@ -73,6 +74,8 @@
   --foreground: #171717;
   --primary: #8751e6;
   --primary-foreground: #ffffff;
+  --radius: 0.75rem;
+  --card-radius: 1.5rem;
 }
 
 @layer base {

@@ -2,38 +2,40 @@ import { Search, Plus, MoreHorizontal, MessageSquare, Paperclip, Calendar, Check
 
 export function DashboardPreview() {
     return (
-        <div className="w-full aspect-[16/10] bg-white rounded-xl overflow-hidden shadow-2xl border border-zinc-200 flex text-left font-sans">
+        <div className="w-full aspect-[16/10] bg-white rounded-[var(--card-radius)] overflow-hidden shadow-2xl border border-zinc-200 flex text-left font-sans text-base">
             {/* Sidebar */}
-            <div className="w-16 md:w-64 border-r border-zinc-100 bg-zinc-50/50 flex flex-col">
+            <aside className="w-16 md:w-64 border-r border-zinc-100 bg-zinc-50/50 flex flex-col">
                 <div className="p-4 border-b border-zinc-100 h-16 flex items-center">
-                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary" aria-hidden="true">
                         <div className="w-4 h-4 rounded bg-primary" />
                     </div>
                     <span className="ml-3 font-semibold text-zinc-900 hidden md:block">Acme Corp.</span>
                 </div>
 
-                <div className="p-4 flex flex-col gap-1">
+                <nav className="p-4 flex flex-col gap-1">
                     <div className="text-xs font-semibold text-zinc-400 mb-2 px-2 hidden md:block">MENU</div>
-                    <SidebarItem icon={<CheckCircle2 className="w-4 h-4" />} label="My Tasks" active />
-                    <SidebarItem icon={<Calendar className="w-4 h-4" />} label="Calendar" />
-                    <SidebarItem icon={<MessageSquare className="w-4 h-4" />} label="Messages" badge="4" />
-                </div>
+                    <ul className="flex flex-col gap-1 p-0 m-0 list-none">
+                        <li><SidebarItem icon={<CheckCircle2 className="w-4 h-4" />} label="My Tasks" active /></li>
+                        <li><SidebarItem icon={<Calendar className="w-4 h-4" />} label="Calendar" /></li>
+                        <li><SidebarItem icon={<MessageSquare className="w-4 h-4" />} label="Messages" badge="4" /></li>
+                    </ul>
+                </nav>
 
                 <div className="mt-auto p-4 border-t border-zinc-100">
                     <div className="flex items-center gap-3 px-2 py-2">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-400 to-blue-400" />
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-400 to-blue-400" aria-hidden="true" />
                         <div className="hidden md:block">
                             <div className="text-sm font-medium text-zinc-900">Alex Designer</div>
                             <div className="text-xs text-zinc-500">Pro Plan</div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </aside>
 
             {/* Main Content */}
-            <div className="flex-1 flex flex-col bg-white">
+            <main className="flex-1 flex flex-col bg-white">
                 {/* Header */}
-                <div className="h-16 border-b border-zinc-100 flex items-center px-6 justify-between shrink-0">
+                <header className="h-16 border-b border-zinc-100 flex items-center px-6 justify-between shrink-0">
                     <div className="flex items-center gap-4">
                         <h2 className="text-lg font-bold text-zinc-900">Website Redesign</h2>
                         <div className="h-6 w-px bg-zinc-200" />
@@ -62,7 +64,7 @@ export function DashboardPreview() {
                             <span className="hidden sm:inline">New Task</span>
                         </button>
                     </div>
-                </div>
+                </header>
 
                 {/* Board */}
                 <div className="flex-1 p-6 overflow-hidden bg-zinc-50/30">
@@ -143,7 +145,7 @@ export function DashboardPreview() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
     )
 }
@@ -201,7 +203,7 @@ function TaskCard({
     };
 
     return (
-        <div className={`p-4 bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] ring-1 ring-zinc-100 group hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:ring-zinc-200 transition-all ${complete ? 'opacity-60 grayscale' : ''}`}>
+        <article className={`p-4 bg-white rounded-[var(--radius)] shadow-[0_2px_8px_rgba(0,0,0,0.04)] ring-1 ring-zinc-100 group hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:ring-zinc-200 transition-all ${complete ? 'opacity-60 grayscale' : ''}`}>
             <div className="flex items-start justify-between mb-3">
                 <span className={`text-[10px] font-bold px-2 py-1 rounded-md text-primary-700 ${categoryColor}`}>
                     {category}
@@ -246,6 +248,6 @@ function TaskCard({
                     </div>
                 </div>
             </div>
-        </div>
+        </article>
     )
 }
