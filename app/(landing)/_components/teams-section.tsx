@@ -1,10 +1,13 @@
 'use client'
 
-import { useState, useRef } from 'react'
 import { Check, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
+import {
+    Tabs,
+    TabsContent,
+    TabsList,
+    TabsTrigger,
+} from "@/components/ui/tabs"
 
 const teamContent = {
     product: {
@@ -49,109 +52,82 @@ const teamContent = {
     }
 }
 
-type TeamKey = keyof typeof teamContent
-
 export function TeamsSection() {
-    const [activeTab, setActiveTab] = useState<TeamKey>('product')
-    const containerRef = useRef<HTMLDivElement>(null)
-    const contentRef = useRef<HTMLDivElement>(null)
-
-    useGSAP(() => {
-        // Animate content change
-        if (contentRef.current) {
-            gsap.fromTo(contentRef.current,
-                { opacity: 0, y: 10 },
-                { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }
-            )
-        }
-    }, { scope: containerRef, dependencies: [activeTab] })
-
-    const activeContent = teamContent[activeTab]
-
     return (
-        <section ref={containerRef} className="bg-white py-24 px-6 md:px-12 w-full flex flex-col items-center">
+        <section className="bg-white py-24 px-6 md:px-12 w-full flex flex-col items-center">
             <div className="max-w-7xl mx-auto w-full">
+                <Tabs defaultValue="product" className="w-full flex flex-col">
+                    {/* Header */}
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-8">
+                        <h2 className="text-4xl md:text-5xl font-serif font-medium text-zinc-900 max-w-xl">
+                            Works with multiple teams across your company
+                        </h2>
 
-                {/* Header */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-8">
-                    <h2 className="text-4xl md:text-5xl font-serif font-medium text-zinc-900 max-w-xl">
-                        Works with multiple teams across your company
-                    </h2>
-
-                    {/* Navigation Tabs */}
-                    <div className="flex flex-wrap gap-2 md:gap-8">
-                        {(Object.keys(teamContent) as TeamKey[]).map((tab) => (
-                            <button
-                                key={tab}
-                                onClick={() => setActiveTab(tab)}
-                                className={`
-                                    text-lg font-medium transition-all duration-300 px-6 py-2 rounded-full
-                                    ${activeTab === tab
-                                        ? 'bg-primary text-white shadow-md shadow-purple-200'
-                                        : 'text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100'
-                                    }
-                                    capitalize
-                                `}
-                            >
-                                {tab}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Content Card */}
-                <div ref={contentRef} className="bg-zinc-950 rounded-[var(--card-radius)] overflow-hidden text-white shadow-2xl min-h-[500px] flex flex-col md:flex-row">
-
-                    {/* Left Panel: Content */}
-                    <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
-                        <h3 className="text-3xl font-bold mb-6 text-white">
-                            {activeContent.title}
-                        </h3>
-
-                        <p className="text-zinc-400 text-lg mb-8">
-                            {activeContent.subtitle}
-                        </p>
-
-                        <ul className="space-y-4 mb-10">
-                            {activeContent.features.map((feature, idx) => (
-                                <li key={idx} className="flex items-start gap-3">
-                                    <div className="mt-1 w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
-                                        <Check className="w-3 h-3 text-primary" />
-                                    </div>
-                                    <span className="text-zinc-300 leading-relaxed">
-                                        {feature}
-                                    </span>
-                                </li>
+                        {/* Navigation Tabs */}
+                        <TabsList className="bg-transparent h-auto p-0 flex flex-wrap gap-2 md:gap-8 justify-start">
+                            {Object.keys(teamContent).map((tab) => (
+                                <TabsTrigger
+                                    key={tab}
+                                    value={tab}
+                                    className="rounded-full px-6 py-2 h-auto text-lg font-medium transition-all duration-300 border-0 bg-transparent text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-md data-[state=active]:shadow-purple-200 capitalize"
+                                >
+                                    {tab}
+                                </TabsTrigger>
                             ))}
-                        </ul>
-
-                        <button className="flex items-center gap-2 text-primary font-bold hover:text-primary/80 transition-colors uppercase tracking-wide text-sm group">
-                            Learn more
-                            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                        </button>
+                        </TabsList>
                     </div>
 
-                    {/* Right Panel: Image/Visual */}
-                    <div className="w-full md:w-1/2 relative bg-zinc-900 min-h-[300px] md:min-h-full border-l border-zinc-800">
-                        {/* Placeholder for the user's requested image link - utilizing a generic functional generic layout for now */}
-                        {/* Using text-primary to check variable usage, but for an image container, we just need the structure */}
-                        <div className="absolute inset-0 flex items-center justify-center p-8">
-                            <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl border border-zinc-800 bg-zinc-950/50">
-                                {/* Image Placeholder */}
-                                <Image
-                                    src={activeContent.image}
-                                    alt={activeContent.title}
-                                    fill
-                                    className="object-cover opacity-80 hover:opacity-100 transition-opacity duration-500"
-                                />
+                    {/* Content Cards */}
+                    {Object.entries(teamContent).map(([key, content]) => (
+                        <TabsContent key={key} value={key} className="mt-0 outline-none animate-in fade-in slide-in-from-bottom-4 duration-500 ease-out">
+                            <div className="bg-zinc-950 rounded-[var(--card-radius)] overflow-hidden text-white shadow-2xl min-h-[500px] flex flex-col md:flex-row">
+                                {/* Left Panel: Content */}
+                                <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
+                                    <h3 className="text-3xl font-bold mb-6 text-white">
+                                        {content.title}
+                                    </h3>
 
-                                {/* Overlay mimicking the UI in the reference */}
-                                <div className="absolute top-4 left-4 right-4 h-8 bg-zinc-800/50 rounded-full blur-xl animate-pulse" />
+                                    <p className="text-zinc-400 text-lg mb-8">
+                                        {content.subtitle}
+                                    </p>
+
+                                    <ul className="space-y-4 mb-10">
+                                        {content.features.map((feature, idx) => (
+                                            <li key={idx} className="flex items-start gap-3">
+                                                <div className="mt-1 w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                                                    <Check className="w-3 h-3 text-primary" />
+                                                </div>
+                                                <span className="text-zinc-300 leading-relaxed">
+                                                    {feature}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    <button className="flex items-center gap-2 text-primary font-bold hover:text-primary/80 transition-colors uppercase tracking-wide text-sm group">
+                                        Learn more
+                                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                                    </button>
+                                </div>
+
+                                {/* Right Panel: Image/Visual */}
+                                <div className="w-full md:w-1/2 relative bg-zinc-900 min-h-[300px] md:min-h-full border-l border-zinc-800">
+                                    <div className="absolute inset-0 flex items-center justify-center p-8">
+                                        <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl border border-zinc-800 bg-zinc-950/50">
+                                            <Image
+                                                src={content.image}
+                                                alt={content.title}
+                                                fill
+                                                className="object-cover opacity-80 hover:opacity-100 transition-opacity duration-500"
+                                            />
+                                            <div className="absolute top-4 left-4 right-4 h-8 bg-zinc-800/50 rounded-full blur-xl animate-pulse" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
+                        </TabsContent>
+                    ))}
+                </Tabs>
             </div>
         </section>
     )
